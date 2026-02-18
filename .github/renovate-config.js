@@ -48,8 +48,8 @@ module.exports = {
     labels: [ 'dependency-update', 'renovate' ],
 
     // Assignees/Reviewers
-    assigneesFromCodeOwners: true,
-    // reviewersFromCodeOwners: true,
+    // assigneesFromCodeOwners: true,
+    reviewersFromCodeOwners: true,
 
     regexManagers: [
         {
