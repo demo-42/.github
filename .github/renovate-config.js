@@ -41,6 +41,20 @@ module.exports = {
     assigneesFromCodeOwners: true,
     reviewersFromCodeOwners: true,
 
+    regexManagers: [
+        {
+            description: 'Detect Docker images in GitHub Actions matrix with renovate comments',
+            managerFilePatterns: [
+                '/^\\.github/workflows/.+\\.ya?ml$/'
+            ],
+            matchStrings: [
+                "-\\s+\"(?<currentValue>[^\"]+)\"\\s+#\\s+renovate:\\s+datasource=(?<datasource>\\S+)\\s+depName=(?<depName>\\S+)"
+            ],
+            depNameTemplate: '{{depName}}',
+            versioningTemplate: 'docker'
+        }
+    ],
+
     // Package rules
     packageRules: [
         {
