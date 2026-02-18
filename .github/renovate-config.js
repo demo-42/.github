@@ -22,7 +22,7 @@ module.exports = {
     ],
 
     // Global settings
-    dependencyDashboard: false,
+    dependencyDashboard: true,
     dependencyDashboardTitle: '🔄 Dependency Updates Dashboard',
 
     // Commit messages
@@ -63,6 +63,7 @@ module.exports = {
             matchPackageNames: [ "splunk/splunk" ],
             matchCurrentVersion: "/^9\\.3\\./",
             allowedVersions: "9.3.x",
+            dependencyDashboardApproval: false,
             groupName: "Splunk 9.3.x Patches"
         },
         {
@@ -71,6 +72,7 @@ module.exports = {
             matchPackageNames: [ "splunk/splunk" ],
             matchCurrentVersion: "/^9\\.4\\./",
             matchUpdateTypes: [ "patch" ],
+            dependencyDashboardApproval: false,
             groupName: "Splunk 9.4.x Patches"
         },
         {
@@ -79,7 +81,7 @@ module.exports = {
             matchPackageNames: [ "splunk/splunk" ],
             matchCurrentVersion: "/^9\\.4\\./",
             matchUpdateTypes: [ "minor", "major" ],
-            dependencyDashboard: true,
+            dependencyDashboardApproval: true,
             groupName: "Splunk 9.4.x Major/Minor Available"
         }
         // GitHub Actions specific
