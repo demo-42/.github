@@ -39,15 +39,8 @@ module.exports = {
     // Branch cleanup and recreation settings
     branchPrefix: 'renovate/',
 
-    // Delete stale branches
-    pruneStaleBranches: true,  // Delete branches with no open PR
-
-    // Force recreation if branch exists
-    recreateClosed: false,  // Don't auto-recreate closed PRs
-    recreateWhen: 'auto',   // But allow recreation when needed
-
-    // Try to auto-resolve conflicts
-    conflictResolution: 'auto',
+    // This tells Renovate to reuse existing branches if they exist
+    reuseExistingBranch: true,
 
     // Labels
     labels: [ 'dependency-update', 'renovate' ],
