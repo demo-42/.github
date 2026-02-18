@@ -11,6 +11,9 @@ module.exports = {
         '!demo-42/.github'
     ],
 
+    // Require some config (repos without any config will be skipped after onboarding PR)
+    requireConfig: 'optional',
+
     // Managers
     enabledManagers: [
         'github-actions',
