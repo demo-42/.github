@@ -30,9 +30,9 @@ module.exports = {
     commitMessagePrefix: 'chore(deps):',
 
     // PR settings
-    // prConcurrentLimit: 10,
-    // prHourlyLimit: 0, // No limit
-    // branchConcurrentLimit: 20,
+    prConcurrentLimit: 10,
+    prHourlyLimit: 0, // No limit
+    branchConcurrentLimit: 20,
 
     // Labels
     labels: [ 'dependency-update', 'renovate' ],
