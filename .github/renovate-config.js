@@ -39,8 +39,14 @@ module.exports = {
     // Branch cleanup and recreation settings
     branchPrefix: 'renovate/',
 
-    // This tells Renovate to reuse existing branches if they exist
-    reuseExistingBranch: true,
+    // Repository cache settings (helps track existing PRs/branches)
+    repositoryCache: 'enabled',
+
+    // Persistence settings (keep data about repos between runs)
+    persistRepoData: true,
+
+    // Don't ignore existing branches
+    ignorePresets: [],
 
     // Labels
     labels: [ 'dependency-update', 'renovate' ],
