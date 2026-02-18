@@ -17,7 +17,7 @@ module.exports = {
     // Managers
     enabledManagers: [
         'github-actions',
-        'docker',
+        // 'docker',
         'regex'
     ],
 
@@ -33,6 +33,21 @@ module.exports = {
     prConcurrentLimit: 10,
     prHourlyLimit: 0, // No limit
     branchConcurrentLimit: 20,
+
+    rebaseWhen: 'behind-base-branch',
+
+    // Branch cleanup and recreation settings
+    branchPrefix: 'renovate/',
+
+    // Delete stale branches
+    pruneStaleBranches: true,  // Delete branches with no open PR
+
+    // Force recreation if branch exists
+    recreateClosed: false,  // Don't auto-recreate closed PRs
+    recreateWhen: 'auto',   // But allow recreation when needed
+
+    // Try to auto-resolve conflicts
+    conflictResolution: 'auto',
 
     // Labels
     labels: [ 'dependency-update', 'renovate' ],
