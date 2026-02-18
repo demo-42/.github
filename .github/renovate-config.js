@@ -1,7 +1,7 @@
 module.exports = {
     platform: 'github',
-    username: 'renovate[bot]',
-    gitAuthor: 'Renovate Bot <renovate@users.noreply.github.com>',
+    // username: 'renovate[bot]',
+    // gitAuthor: 'Renovate Bot <renovate@users.noreply.github.com>',
 
     // Organization setup
     autodiscover: true,
@@ -42,11 +42,11 @@ module.exports = {
     // Repository cache settings (helps track existing PRs/branches)
     repositoryCache: 'enabled',
 
-    // Persistence settings (keep data about repos between runs)
-    persistRepoData: true,
+    // // Persistence settings (keep data about repos between runs)
+    // persistRepoData: true,
 
-    // Don't ignore existing branches
-    ignorePresets: [],
+    // // Don't ignore existing branches
+    // ignorePresets: [],
 
     // Labels
     labels: [ 'dependency-update', 'renovate' ],
