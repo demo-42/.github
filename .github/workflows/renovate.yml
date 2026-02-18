@@ -13,8 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # - name: Validate Renovate JSON
-      #   run: jq type .github/renovate.json
+      - name: Get token
+        id: get_token
+        uses: actions/create-github-app-token@v2
+        with:
+          private-key: ${{ secrets.RENOVATE_PRIVATE_KEY }}
+          app-id: ${{ secrets.RENOVATE_APP_ID }}
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v46.0.2
         env:
@@ -23,4 +27,5 @@ jobs:
           RENOVATE_ONBOARDING: "false"
         with:
           configurationFile: .github/renovate-config.js
-          token: ${{ secrets.RENOVATE_TOKEN }}
+          token: '${{ steps.get_token.outputs.token }}'
+          # token: ${{ secrets.RENOVATE_TOKEN }}
