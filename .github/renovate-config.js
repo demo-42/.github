@@ -39,7 +39,7 @@ module.exports = {
     rebaseWhen: 'behind-base-branch',
 
     // Branch cleanup and recreation settings
-    // branchPrefix: 'renovate/',
+    branchPrefix: 'renovate/',
 
     // Repository cache settings (helps track existing PRs/branches)
     // repositoryCache: 'enabled',
