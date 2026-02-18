@@ -22,7 +22,7 @@ module.exports = {
     ],
 
     // Global settings
-    dependencyDashboard: true,
+    dependencyDashboard: false,
     dependencyDashboardTitle: '🔄 Dependency Updates Dashboard',
 
     // Commit messages
@@ -39,7 +39,7 @@ module.exports = {
 
     // Assignees/Reviewers
     assigneesFromCodeOwners: true,
-    reviewersFromCodeOwners: true,
+    // reviewersFromCodeOwners: true,
 
     regexManagers: [
         {
@@ -50,7 +50,7 @@ module.exports = {
             matchStrings: [
                 "-\\s+\"(?<currentValue>[^\"]+)\"\\s+#\\s+renovate:\\s+datasource=(?<datasource>\\S+)\\s+depName=(?<depName>\\S+)"
             ],
-            depNameTemplate: '{{depName}}',
+            // depNameTemplate: '{{depName}}',
             versioningTemplate: 'docker'
         }
     ],
@@ -79,6 +79,7 @@ module.exports = {
             matchPackageNames: [ "splunk/splunk" ],
             matchCurrentVersion: "/^9\\.4\\./",
             matchUpdateTypes: [ "minor", "major" ],
+            dependencyDashboard: true,
             groupName: "Splunk 9.4.x Major/Minor Available"
         }
         // GitHub Actions specific

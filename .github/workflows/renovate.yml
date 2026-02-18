@@ -3,7 +3,7 @@ name: Renovate
 on:
   workflow_call:
   workflow_dispatch:
-  # TODO add schedule
+  # TODO add schedule and on push of renovate.yml or renovate-config
 
 concurrency: renovate
 
