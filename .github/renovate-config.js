@@ -17,7 +17,8 @@ module.exports = {
     // Managers
     enabledManagers: [
         'github-actions',
-        'docker'
+        'docker',
+        'regex'
     ],
 
     // Global settings
@@ -34,7 +35,7 @@ module.exports = {
     // branchConcurrentLimit: 20,
 
     // Labels
-    labels: ['dependency-update', 'renovate' ],
+    labels: [ 'dependency-update', 'renovate' ],
 
     // Assignees/Reviewers
     assigneesFromCodeOwners: true,
