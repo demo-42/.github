@@ -1,23 +1,19 @@
 module.exports = {
     platform: 'github',
     username: 'renovate[bot]',
-    gitAuthor: 'Renovate Bot <renovate@example.com>',
+    gitAuthor: 'Renovate Bot <renovate@users.noreply.github.com>',
 
     // Organization setup
     autodiscover: true,
     autodiscoverFilter: ['demo-42/*'],
 
     // Exclude certain repos
-    // autodiscoverTopics: ['!renovate-exclude'],
+    autodiscoverTopics: ['!admin'],
 
     // Managers
     enabledManagers: [
         'github-actions',
-        // 'npm',
         'docker'
-        // 'terraform',
-        // 'pip',
-        // 'maven'
     ],
 
     // Global settings
@@ -34,7 +30,7 @@ module.exports = {
     // branchConcurrentLimit: 20,
 
     // Labels
-    labels: ['dependency-update'],
+    labels: ['dependency-update', 'renovate' ],
 
     // Assignees/Reviewers
     assigneesFromCodeOwners: true,
