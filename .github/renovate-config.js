@@ -1,5 +1,6 @@
 module.exports = {
     platform: 'github',
+    // Author must match the one opening PRs!!
     // username: 'renovate[bot]',
     // gitAuthor: 'Renovate Bot <renovate@users.noreply.github.com>',
 
@@ -34,19 +35,14 @@ module.exports = {
     prHourlyLimit: 0, // No limit
     branchConcurrentLimit: 20,
 
+    // To reduce PR rebases
     rebaseWhen: 'behind-base-branch',
 
     // Branch cleanup and recreation settings
-    branchPrefix: 'renovate/',
+    // branchPrefix: 'renovate/',
 
     // Repository cache settings (helps track existing PRs/branches)
-    repositoryCache: 'enabled',
-
-    // // Persistence settings (keep data about repos between runs)
-    // persistRepoData: true,
-
-    // // Don't ignore existing branches
-    // ignorePresets: [],
+    // repositoryCache: 'enabled',
 
     // Labels
     labels: [ 'dependency-update', 'renovate' ],
@@ -125,16 +121,5 @@ module.exports = {
         //     dependencyDashboardApproval: true,
         //     labels: ['major-update', 'needs-review']
         // }
-    ],
-
-    // Vulnerability alerts
-    // vulnerabilityAlerts: {
-    //     enabled: true,
-    //     labels: ['security', 'high-priority'],
-    //     assignees: ['@security-team']
-    // },
-
-    // Schedule
-    // schedule: ['before 5am every weekday'],
-    // timezone: 'Europe/Berlin'
+    ]
 };
