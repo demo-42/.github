@@ -1,8 +1,8 @@
 module.exports = {
     platform: 'github',
     // Author must match the one opening PRs!!
-    // username: 'renovate[bot]',
-    // gitAuthor: 'Renovate Bot <renovate@users.noreply.github.com>',
+    username: 'demo42-renovate-app[bot]',
+    gitAuthor: 'demo42-renovate-app <demo42-renovate-app[bot]@users.noreply.github.com>',
 
     // Organization setup
     autodiscover: true,
