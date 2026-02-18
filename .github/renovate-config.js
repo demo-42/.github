@@ -5,10 +5,11 @@ module.exports = {
 
     // Organization setup
     autodiscover: true,
-    autodiscoverFilter: ['demo-42/*'],
-
-    // Exclude certain repos
-    // autodiscoverTopics: ['!admin'],
+    autodiscoverFilter: [
+        'demo-42/*',
+        '!demo-42/admin',
+        '!demo-42/.github'
+    ],
 
     // Managers
     enabledManagers: [
