@@ -20,8 +20,9 @@ jobs:
           private-key: ${{ secrets.RENOVATE_PRIVATE_KEY }}
           app-id: ${{ secrets.RENOVATE_APP_ID }}
           owner: "demo-42"
+          # The owner of the GitHub App installation
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v46.0.2
+        uses: renovatebot/github-action@v46.1.1
         env:
           LOG_LEVEL: debug
           # Onboarding not needed for self hosted
