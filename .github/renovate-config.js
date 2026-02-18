@@ -8,7 +8,7 @@ module.exports = {
     autodiscoverFilter: ['demo-42/*'],
 
     // Exclude certain repos
-    autodiscoverTopics: ['!admin'],
+    // autodiscoverTopics: ['!admin'],
 
     // Managers
     enabledManagers: [
