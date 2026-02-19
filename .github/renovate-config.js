@@ -74,7 +74,7 @@ module.exports = {
             automergeType: "pr",
             // platformAutomerge: true,
             // dependencyDashboardApproval: false,
-            minimumReleaseAge: "15 days",  // Wait for stability
+            minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.3.x Patches"
         },
         {
@@ -87,7 +87,7 @@ module.exports = {
             automergeType: "pr",
             // platformAutomerge: true,
             // dependencyDashboardApproval: false,
-            minimumReleaseAge: "15 days",  // Wait for stability
+            minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.4.x Patches"
         },
         {
@@ -98,7 +98,7 @@ module.exports = {
             matchUpdateTypes: [ "minor", "major" ],
             // dependencyDashboardApproval: true,
             reviewersFromCodeOwners: true,
-            minimumReleaseAge: "15 days",  // Wait for stability
+            minimumReleaseAge: "3 days",  // Wait for stability
             labels: [ 'dependency-update', 'renovate', 'needs-review' ],
             groupName: "Splunk 9.4.x Major/Minor Available"
         }
