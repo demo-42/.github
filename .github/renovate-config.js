@@ -71,6 +71,7 @@ module.exports = {
             allowedVersions: "9.3.x",
             automerge: true,
             automergeType: "pr",
+            platformAutomerge: true,
             // dependencyDashboardApproval: false,
             minimumReleaseAge: "15 days",  // Wait for stability
             groupName: "Splunk 9.3.x Patches"
@@ -83,6 +84,7 @@ module.exports = {
             matchUpdateTypes: [ "patch" ],
             automerge: true,
             automergeType: "pr",
+            platformAutomerge: true,
             // dependencyDashboardApproval: false,
             minimumReleaseAge: "15 days",  // Wait for stability
             groupName: "Splunk 9.4.x Patches"
