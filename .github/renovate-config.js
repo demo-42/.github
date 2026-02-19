@@ -1,6 +1,6 @@
 module.exports = {
     platform: 'github',
-    // Author must match the one opening PRs!!
+    // Author must match the one opening PRs!! Use github app name.
     username: 'demo42-renovate-app[bot]',
     gitAuthor: 'demo42-renovate-app <demo42-renovate-app[bot]@users.noreply.github.com>',
 
@@ -18,12 +18,12 @@ module.exports = {
     // Managers
     enabledManagers: [
         'github-actions',
-        // 'docker',
+        'docker',
         'regex'
     ],
 
     // Global settings
-    dependencyDashboard: true,
+    dependencyDashboard: false,
     dependencyDashboardTitle: '🔄 Dependency Updates Dashboard',
 
     // Commit messages
@@ -41,15 +41,11 @@ module.exports = {
     // Branch cleanup and recreation settings
     branchPrefix: 'renovate/',
 
-    // Repository cache settings (helps track existing PRs/branches)
-    // repositoryCache: 'enabled',
-
     // Labels
     labels: [ 'dependency-update', 'renovate' ],
 
     // Assignees/Reviewers
     // assigneesFromCodeOwners: true,
-    reviewersFromCodeOwners: true,
 
     regexManagers: [
         {
@@ -68,12 +64,15 @@ module.exports = {
     // Package rules
     packageRules: [
         {
-            description: "Keep 9.3.x line within 9.3 patches only",
+            description: "Auto-update 9.3.x patches only",
             matchDatasources: [ "docker" ],
             matchPackageNames: [ "splunk/splunk" ],
             matchCurrentVersion: "/^9\\.3\\./",
             allowedVersions: "9.3.x",
-            dependencyDashboardApproval: false,
+            automerge: true,
+            automergeType: "pr",
+            // dependencyDashboardApproval: false,
+            minimumReleaseAge: "15 days",  // Wait for stability
             groupName: "Splunk 9.3.x Patches"
         },
         {
@@ -82,16 +81,22 @@ module.exports = {
             matchPackageNames: [ "splunk/splunk" ],
             matchCurrentVersion: "/^9\\.4\\./",
             matchUpdateTypes: [ "patch" ],
-            dependencyDashboardApproval: false,
+            automerge: true,
+            automergeType: "pr",
+            // dependencyDashboardApproval: false,
+            minimumReleaseAge: "15 days",  // Wait for stability
             groupName: "Splunk 9.4.x Patches"
         },
         {
-            description: "Block 9.4.x minor/major updates - show in dashboard",
+            description: "Notify 9.4.x minor/major updates availability",
             matchDatasources: [ "docker" ],
             matchPackageNames: [ "splunk/splunk" ],
             matchCurrentVersion: "/^9\\.4\\./",
             matchUpdateTypes: [ "minor", "major" ],
-            dependencyDashboardApproval: true,
+            // dependencyDashboardApproval: true,
+            reviewersFromCodeOwners: true,
+            minimumReleaseAge: "15 days",  // Wait for stability
+            labels: ["needs-review"],
             groupName: "Splunk 9.4.x Major/Minor Available"
         }
         // GitHub Actions specific
