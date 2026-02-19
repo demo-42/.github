@@ -72,7 +72,7 @@ module.exports = {
             allowedVersions: "9.3.x",
             automerge: true,
             automergeType: "pr",
-            platformAutomerge: true,
+            // platformAutomerge: true,
             // dependencyDashboardApproval: false,
             minimumReleaseAge: "15 days",  // Wait for stability
             groupName: "Splunk 9.3.x Patches"
@@ -85,7 +85,7 @@ module.exports = {
             matchUpdateTypes: [ "patch" ],
             automerge: true,
             automergeType: "pr",
-            platformAutomerge: true,
+            // platformAutomerge: true,
             // dependencyDashboardApproval: false,
             minimumReleaseAge: "15 days",  // Wait for stability
             groupName: "Splunk 9.4.x Patches"
@@ -99,7 +99,7 @@ module.exports = {
             // dependencyDashboardApproval: true,
             reviewersFromCodeOwners: true,
             minimumReleaseAge: "15 days",  // Wait for stability
-            labels: ["needs-review"],
+            labels: [ 'dependency-update', 'renovate', 'needs-review' ],
             groupName: "Splunk 9.4.x Major/Minor Available"
         }
         // GitHub Actions specific
