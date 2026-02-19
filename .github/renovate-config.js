@@ -18,7 +18,7 @@ module.exports = {
     // Managers
     enabledManagers: [
         'github-actions',
-        'docker',
+        // 'docker',
         'regex'
     ],
 
@@ -46,6 +46,7 @@ module.exports = {
 
     // Assignees/Reviewers
     // assigneesFromCodeOwners: true,
+    recreateClosed: true,
 
     regexManagers: [
         {
