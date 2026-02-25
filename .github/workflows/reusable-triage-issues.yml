@@ -25,6 +25,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: ${{ steps.classify.outputs.labels }}
+          number: ${{ inputs.issue_number }}
 
       - name: Comment on issue
         uses: peter-evans/create-or-update-comment@v4
