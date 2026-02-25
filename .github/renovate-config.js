@@ -46,6 +46,7 @@ module.exports = {
 
     // Assignees/Reviewers
     // assigneesFromCodeOwners: true,
+    reviewersFromCodeOwners: true,
     // recreateClosed: true,
 
     regexManagers: [
@@ -72,9 +73,9 @@ module.exports = {
             allowedVersions: "9.3.x",
             automerge: true,
             automergeType: "pr",
-            // dependencyDashboardApproval: false,
             minimumReleaseAge: "3 days",  // Wait for stability
-            groupName: "Splunk 9.3.x Patches"
+            groupName: "Splunk 9.3.x Patches",
+            enabled: false
         },
         {
             description: "Auto-update 9.4.x patches only",
@@ -84,9 +85,9 @@ module.exports = {
             matchUpdateTypes: [ "patch" ],
             automerge: true,
             automergeType: "pr",
-            // dependencyDashboardApproval: false,
             minimumReleaseAge: "3 days",  // Wait for stability
-            groupName: "Splunk 9.4.x Patches"
+            groupName: "Splunk 9.4.x Patches",
+            enabled: false
         },
         {
             description: "Notify 9.4.x minor/major updates availability",
@@ -94,38 +95,33 @@ module.exports = {
             matchPackageNames: [ "splunk/splunk" ],
             matchCurrentVersion: "/^9\\.4\\./",
             matchUpdateTypes: [ "minor", "major" ],
-            // dependencyDashboardApproval: true,
-            reviewersFromCodeOwners: true,
             minimumReleaseAge: "3 days",  // Wait for stability
             labels: [ 'dependency-update', 'renovate', 'needs-review' ],
-            groupName: "Splunk 9.4.x Major/Minor Available"
-        }
+            groupName: "Splunk 9.4.x Major/Minor Available",
+            enabled: false
+        },
         // GitHub Actions specific
-        // {
-        //     matchManagers: ['github-actions'],
-        //     groupName: 'GitHub Actions',
-        //     pinDigests: true,
-        //     semanticCommitType: 'ci',
-        //     semanticCommitScope: 'github-actions',
-        //     commitMessageTopic: '{{depName}} action',
-        //     prPriority: 10,
-        //     stabilityDays: 3
-        // },
-
-        // Critical actions - auto-merge patches
-        // {
-        //     matchManagers: ['github-actions'],
-        //     matchPackagePatterns: ['^actions/', '^github/'],
-        //     matchUpdateTypes: ['patch', 'digest'],
-        //     automerge: true,
-        //     automergeType: 'branch'
-        // },
-
-        // Major updates require approval
-        // {
-        //     matchUpdateTypes: ['major'],
-        //     dependencyDashboardApproval: true,
-        //     labels: ['major-update', 'needs-review']
-        // }
+        {
+            description: "Update public GitHub Actions",
+            matchManagers: ["github-actions"],
+            // Matches actions/checkout, etc.
+            matchPackagePatterns: ["^actions/", "^github/"],
+            groupName: "Public GitHub actions",
+            // Ensures to get PRs for major updates (v4 -> v5)
+            separateMajorMinor: true,
+            excludePackagePatterns: ["^demo-42/"],
+            minimumReleaseAge: "3 days"  // Wait for stability
+        },
+        {
+            description: "Update internal reusable workflows",
+            matchManagers: ["github-actions"],
+            matchPackagePatterns: ["^demo-42/"],
+            groupName: "Internal Reusable Workflows",
+            versioning: "docker",
+            // Adding automerge
+            automerge: true,
+            automergeType: "pr"
+            // TODO Add wait for stability!
+        }
     ]
 };
