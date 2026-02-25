@@ -46,7 +46,7 @@ module.exports = {
 
     // Assignees/Reviewers
     // assigneesFromCodeOwners: true,
-    recreateClosed: true,
+    // recreateClosed: true,
 
     regexManagers: [
         {
@@ -72,7 +72,6 @@ module.exports = {
             allowedVersions: "9.3.x",
             automerge: true,
             automergeType: "pr",
-            // platformAutomerge: true,
             // dependencyDashboardApproval: false,
             minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.3.x Patches"
@@ -85,7 +84,6 @@ module.exports = {
             matchUpdateTypes: [ "patch" ],
             automerge: true,
             automergeType: "pr",
-            // platformAutomerge: true,
             // dependencyDashboardApproval: false,
             minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.4.x Patches"
