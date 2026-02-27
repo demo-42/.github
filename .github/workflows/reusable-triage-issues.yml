@@ -28,7 +28,7 @@ jobs:
           number: ${{ inputs.issue_number }}
 
       - name: Comment on issue
-        uses: peter-evans/create-or-update-comment@v4
+        uses: peter-evans/create-or-update-comment@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ inputs.issue_number }}
