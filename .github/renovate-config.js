@@ -8,8 +8,7 @@ module.exports = {
     autodiscover: true,
     autodiscoverFilter: [
         'demo-42/*',
-        '!demo-42/admin',
-        '!demo-42/.github'
+        '!demo-42/admin'
     ],
 
     // Require some config (repos without any config will be skipped after onboarding PR)
@@ -42,12 +41,16 @@ module.exports = {
     branchPrefix: 'renovate/',
 
     // Labels
-    labels: [ 'dependency-update', 'renovate' ],
+    labels: ['dependency-update', 'renovate', 'auto-merge-enabled' ],
 
     // Assignees/Reviewers
     // assigneesFromCodeOwners: true,
     reviewersFromCodeOwners: true,
     // recreateClosed: true,
+
+    // NOTE 1 review will be needed, but does not necessarily have to be from CODEOWNER
+    // To allow org admins to do so, consider uncommenting and commenting line 49
+    // reviewers: ["team:admins"],
 
     regexManagers: [
         {
@@ -110,6 +113,7 @@ module.exports = {
             // Ensures to get PRs for major updates (v4 -> v5)
             separateMajorMinor: true,
             excludePackagePatterns: ["^demo-42/"],
+            labels: ['dependency-update', 'renovate', 'needs-review'],
             minimumReleaseAge: "3 days"  // Wait for stability
         },
         {
@@ -120,8 +124,8 @@ module.exports = {
             versioning: "docker",
             // Adding automerge
             automerge: true,
-            automergeType: "pr"
-            // TODO Add wait for stability!
+            automergeType: "pr",
+            minimumReleaseAge: "3 days"  // Wait for stability
         }
     ]
 };
