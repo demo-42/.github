@@ -77,8 +77,8 @@ module.exports = {
             automerge: true,
             automergeType: "pr",
             minimumReleaseAge: "3 days",  // Wait for stability
-            groupName: "Splunk 9.3.x Patches",
-            enabled: false
+            groupName: "Splunk 9.3.x Patches"
+            // enabled: false
         },
         {
             description: "Auto-update 9.4.x patches only",
@@ -89,8 +89,8 @@ module.exports = {
             automerge: true,
             automergeType: "pr",
             minimumReleaseAge: "3 days",  // Wait for stability
-            groupName: "Splunk 9.4.x Patches",
-            enabled: false
+            groupName: "Splunk 9.4.x Patches"
+            // enabled: false
         },
         {
             description: "Notify 9.4.x minor/major updates availability",
@@ -100,8 +100,8 @@ module.exports = {
             matchUpdateTypes: [ "minor", "major" ],
             minimumReleaseAge: "3 days",  // Wait for stability
             labels: [ 'dependency-update', 'renovate', 'needs-review' ],
-            groupName: "Splunk 9.4.x Major/Minor Available",
-            enabled: false
+            groupName: "Splunk 9.4.x Major/Minor Available"
+            // enabled: false
         },
         // GitHub Actions specific
         {
