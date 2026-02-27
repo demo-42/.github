@@ -1,0 +1,39 @@
+name: Tests
+
+on:
+  workflow_call:
+
+jobs:
+  tests:
+    name: Deploy and test the TA
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version:
+          - "9.4.1" # renovate: datasource=docker depName=splunk/splunk
+          - "9.3.3" # renovate: datasource=docker depName=splunk/splunk
+    services:
+      splunk:
+        image: splunk/splunk:${{ matrix.version }}
+        env:
+          SPLUNK_START_ARGS: --answer-yes --no-prompt --accept-license
+          SPLUNK_GENERAL_TERMS: --accept-sgt-current-at-splunk-com
+          SPLUNK_PASSWORD: password
+          DEBUG: true
+        options: >-
+          --health-interval 30s
+          --health-timeout 5s
+          --health-retries 5
+          --name splunk
+        ports:
+          - 8000:8000
+          - 8089:8089
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Matrix Test
+        run: echo "Testing Splunk version ${{ matrix.version }}"
+      - name: List all installed apps
+        run: |
+          curl -k -u admin:password https://localhost:8089/services/apps/local?output_mode=json
+          # curl -k -u admin:password https://localhost:8089/services/apps/local?output_mode=json | jq -r '.entry | .[].acl.sharing'
