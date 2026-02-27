@@ -108,7 +108,7 @@ module.exports = {
             description: "Update public GitHub Actions",
             matchManagers: ["github-actions"],
             // Matches actions/checkout, etc.
-            matchPackagePatterns: ["^actions/", "^github/"],
+            matchPackagePatterns: ["^actions/", "^github/", "^renovatebot/"],
             groupName: "Public GitHub actions",
             // Ensures to get PRs for major updates (v4 -> v5)
             separateMajorMinor: true,
