@@ -22,7 +22,7 @@ jobs:
           owner: "demo-42"
           # The owner of the GitHub App installation
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v46.1.1
+        uses: renovatebot/github-action@v46.1.2
         env:
           LOG_LEVEL: debug
           # Onboarding not needed for self hosted
