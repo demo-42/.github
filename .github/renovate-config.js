@@ -4,11 +4,6 @@ module.exports = {
     username: 'demo42-renovate-app[bot]',
     gitAuthor: 'demo42-renovate-app <demo42-renovate-app[bot]@users.noreply.github.com>',
 
-    extends: [
-        "config:recommended",
-        "github>demo-42/.github//.github/renovate.json"
-    ],
-
     // Organization setup
     autodiscover: true,
     autodiscoverFilter: [
@@ -73,6 +68,13 @@ module.exports = {
 
     // Package rules
     packageRules: [
+        {
+            description: "Override org config for .github repo",
+            reviewersFromCodeOwners: false,
+            reviewers: [ "edro15" ],
+            matchRepositories: [ "demo-42/.github" ],
+            platformAutomerge: true
+        },
         {
             description: "Auto-update 9.3.x patches only",
             matchDatasources: [ "docker" ],
