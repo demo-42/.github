@@ -30,7 +30,7 @@ jobs:
           - 8000:8000
           - 8089:8089
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Run Matrix Test
         run: echo "Testing Splunk version ${{ matrix.version }}"
       - name: List all installed apps
