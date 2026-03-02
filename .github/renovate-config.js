@@ -6,7 +6,7 @@ module.exports = {
 
     extends: [
         "config:recommended",
-        "local>.github/renovate.json"
+        "github>demo-42/.github:renovate"
     ],
 
     // Organization setup
