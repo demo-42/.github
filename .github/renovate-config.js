@@ -72,7 +72,7 @@ module.exports = {
             description: "Override org config for .github repo",
             reviewersFromCodeOwners: false,
             reviewers: [ "edro15" ],
-            matchRepositories: [ "demo-42/.github" ],
+            matchRepositories: [ "/^\\.github$/" ],
             platformAutomerge: true
         },
         {
