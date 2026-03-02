@@ -3,6 +3,5 @@
     "description": "Override org config for .github repo",
     "reviewersFromCodeOwners": false,
     "reviewers": [ "edro15" ],
-    "assignees": [ "edro15" ],
     "platformAutomerge": true
 }

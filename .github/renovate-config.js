@@ -4,6 +4,11 @@ module.exports = {
     username: 'demo42-renovate-app[bot]',
     gitAuthor: 'demo42-renovate-app <demo42-renovate-app[bot]@users.noreply.github.com>',
 
+    extends: [
+        "config:recommended",
+        "local>.github/renovate.json"
+    ],
+
     // Organization setup
     autodiscover: true,
     autodiscoverFilter: [
