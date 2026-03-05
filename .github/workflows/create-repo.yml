@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Create Repository
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ inputs.repo_name }}
         run: |
           gh repo create $REPO --add-readme --public
