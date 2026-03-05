@@ -1,0 +1,18 @@
+name: Create Repository
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        required: true
+        type: string
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Repository
+        env:
+          REPO: ${{ inputs.repo_name }}
+        run: |
+          gh repo create $REPO --add-readme --public
