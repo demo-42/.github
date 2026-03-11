@@ -68,13 +68,13 @@ module.exports = {
 
     // Package rules
     packageRules: [
-        {
-            description: "Override org config for .github repo",
-            reviewersFromCodeOwners: false,
-            reviewers: [ "edro15" ],
-            matchRepositories: [ "/^\\.github$/" ],
-            platformAutomerge: true
-        },
+        // {
+        //     description: "Override org config for .github repo",
+        //     reviewersFromCodeOwners: false,
+        //     reviewers: [ "edro15" ],
+        //     matchRepositories: [ "/^\\.github$/" ],
+        //     platformAutomerge: true
+        // },
         {
             description: "Auto-update 9.3.x patches only",
             matchDatasources: [ "docker" ],
