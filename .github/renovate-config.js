@@ -68,13 +68,6 @@ module.exports = {
 
     // Package rules
     packageRules: [
-        // {
-        //     description: "Override org config for .github repo",
-        //     reviewersFromCodeOwners: false,
-        //     reviewers: [ "edro15" ],
-        //     matchRepositories: [ "/^\\.github$/" ],
-        //     platformAutomerge: true
-        // },
         {
             description: "Auto-update 9.3.x patches only",
             matchDatasources: [ "docker" ],
@@ -83,6 +76,7 @@ module.exports = {
             allowedVersions: "9.3.x",
             automerge: true,
             automergeType: "pr",
+            platformAutomerge: true,
             minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.3.x Patches"
             // enabled: false
@@ -95,6 +89,7 @@ module.exports = {
             matchUpdateTypes: [ "patch" ],
             automerge: true,
             automergeType: "pr",
+            platformAutomerge: true,
             minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.4.x Patches"
             // enabled: false
@@ -132,6 +127,7 @@ module.exports = {
             // Adding automerge
             automerge: true,
             automergeType: "pr",
+            platformAutomerge: true,
             minimumReleaseAge: "3 days"  // Wait for stability
         }
     ]
