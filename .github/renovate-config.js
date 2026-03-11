@@ -80,6 +80,7 @@ module.exports = {
             minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.3.x Patches"
             // enabled: false
+            // -> .github -> Reviewer missing!!!!
         },
         {
             description: "Auto-update 9.4.x patches only",
@@ -93,6 +94,7 @@ module.exports = {
             minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.4.x Patches"
             // enabled: false
+            // -> .github -> Reviewer missing!!!!
         },
         {
             description: "Notify 9.4.x minor/major updates availability",
@@ -104,13 +106,14 @@ module.exports = {
             labels: [ 'dependency-update', 'renovate', 'needs-review' ],
             groupName: "Splunk 9.4.x Major/Minor Available"
             // enabled: false
+            // -> .github -> Reviewer properly assigned!
         },
         // GitHub Actions specific
         {
-            description: "Update public GitHub Actions",
+            description: "Update all public GitHub Actions",
             matchManagers: ["github-actions"],
             // Matches actions/checkout, etc.
-            matchPackagePatterns: ["^actions/", "^github/", "^renovatebot/"],
+            // matchPackagePatterns: ["^actions/", "^github/", "^renovatebot/"],
             groupName: "Public GitHub actions",
             // Ensures to get PRs for major updates (v4 -> v5)
             separateMajorMinor: true,

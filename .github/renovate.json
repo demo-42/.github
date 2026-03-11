@@ -3,6 +3,7 @@
     "extends": [ "config:recommended" ],
     "description": "Override org config for .github repo",
     "reviewersFromCodeOwners": false,
+    "assignAutomerge": true,
     "recreateClosed": true,
     "reviewers": [ "edro15" ]
 }
