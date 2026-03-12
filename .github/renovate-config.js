@@ -132,9 +132,14 @@ module.exports = {
         },
         // Docusaurus specific
         {
-            extends: [ "monorepo:docusaurus" ],
-            groupName: "docusaurus monorepo",
-            matchUpdateTypes: [ "minor", "major" ]
+            packagePatterns: ["^@docusaurus"],
+            matchUpdateTypes: ["minor", "major"],
+            groupName: "docusaurus monorepo"
         }
+        // {
+        //     extends: [ "monorepo:docusaurus" ],
+        //     groupName: "docusaurus monorepo",
+        //     matchUpdateTypes: [ "minor", "major" ]
+        // }
     ]
 };
