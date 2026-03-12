@@ -18,6 +18,7 @@ module.exports = {
     enabledManagers: [
         'github-actions',
         // 'docker',
+        'npm',
         'regex'
     ],
 
@@ -41,7 +42,7 @@ module.exports = {
     branchPrefix: 'renovate/',
 
     // Labels
-    labels: ['dependency-update', 'renovate', 'auto-merge-enabled' ],
+    labels: ['dependency-update', 'renovate', 'automerge-enabled' ],
 
     // Assignees/Reviewers
     reviewersFromCodeOwners: true,
@@ -131,15 +132,15 @@ module.exports = {
             minimumReleaseAge: "3 days"  // Wait for stability
         },
         // Docusaurus specific
-        {
-            packagePatterns: ["^@docusaurus"],
-            matchUpdateTypes: ["minor", "major"],
-            groupName: "docusaurus monorepo"
-        }
         // {
-        //     extends: [ "monorepo:docusaurus" ],
-        //     groupName: "docusaurus monorepo",
-        //     matchUpdateTypes: [ "minor", "major" ]
+        //     packagePatterns: ["^@docusaurus"],
+        //     matchUpdateTypes: ["minor", "major"],
+        //     groupName: "docusaurus monorepo"
         // }
+        {
+            extends: [ "monorepo:docusaurus" ],
+            groupName: "docusaurus monorepo",
+            matchUpdateTypes: [ "minor", "major" ]
+        }
     ]
 };
