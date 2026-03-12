@@ -131,14 +131,17 @@ module.exports = {
             platformAutomerge: true,
             minimumReleaseAge: "3 days"  // Wait for stability
         },
+        // All npm dependencies (from package.json)
+        {
+            matchManagers: ["npm"],
+            description: "Update all npm dependencies",
+            groupName: "all npm dependencies",
+            matchUpdateTypes: ["minor", "major"]
+        },
         // Docusaurus specific
-        // {
-        //     packagePatterns: ["^@docusaurus"],
-        //     matchUpdateTypes: ["minor", "major"],
-        //     groupName: "docusaurus monorepo"
-        // }
         {
             extends: [ "monorepo:docusaurus" ],
+            description: "Update docusaurus and its dependencies",
             groupName: "docusaurus monorepo",
             matchUpdateTypes: [ "minor", "major" ]
         }
