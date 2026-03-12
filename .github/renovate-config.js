@@ -44,12 +44,13 @@ module.exports = {
     labels: ['dependency-update', 'renovate', 'auto-merge-enabled' ],
 
     // Assignees/Reviewers
-    // assigneesFromCodeOwners: true,
     reviewersFromCodeOwners: true,
-    // recreateClosed: true,
+
+    // TODO remove the following param in prod!
+    recreateClosed: true,
 
     // NOTE 1 review will be needed, but does not necessarily have to be from CODEOWNER
-    // To allow org admins to do so, consider uncommenting and commenting line 49
+    // To allow org admins to do so, consider adding
     // reviewers: ["team:admins"],
 
     regexManagers: [
@@ -67,6 +68,7 @@ module.exports = {
     ],
 
     // Package rules
+    // !! Evaluated **in order**: later rules override earlier ones for overlapping matches !!
     packageRules: [
         {
             description: "Auto-update 9.3.x patches only",
@@ -80,7 +82,6 @@ module.exports = {
             minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.3.x Patches"
             // enabled: false
-            // -> .github -> Reviewer missing!!!!
         },
         {
             description: "Auto-update 9.4.x patches only",
@@ -93,8 +94,6 @@ module.exports = {
             platformAutomerge: true,
             minimumReleaseAge: "3 days",  // Wait for stability
             groupName: "Splunk 9.4.x Patches"
-            // enabled: false
-            // -> .github -> Reviewer missing!!!!
         },
         {
             description: "Notify 9.4.x minor/major updates availability",
@@ -105,8 +104,6 @@ module.exports = {
             minimumReleaseAge: "3 days",  // Wait for stability
             labels: [ 'dependency-update', 'renovate', 'needs-review' ],
             groupName: "Splunk 9.4.x Major/Minor Available"
-            // enabled: false
-            // -> .github -> Reviewer properly assigned!
         },
         // GitHub Actions specific
         {
@@ -132,6 +129,12 @@ module.exports = {
             automergeType: "pr",
             platformAutomerge: true,
             minimumReleaseAge: "3 days"  // Wait for stability
+        },
+        // Docusaurus specific
+        {
+            extends: [ "monorepo:docusaurus" ],
+            groupName: "docusaurus monorepo",
+            matchUpdateTypes: [ "minor", "major" ]
         }
     ]
 };
