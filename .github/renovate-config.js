@@ -14,6 +14,12 @@ module.exports = {
     // Require some config (repos without any config will be skipped after onboarding PR)
     requireConfig: 'optional',
 
+    // pre-commit functionality is in beta testing
+    // -> opt-in to test it
+    "pre-commit": {
+        "enabled": true
+    },
+
     // Managers
     enabledManagers: [
         'github-actions',
