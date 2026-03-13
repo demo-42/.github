@@ -7,8 +7,8 @@ module.exports = {
     // Organization setup
     autodiscover: true,
     autodiscoverFilter: [
-        'demo-42/*',
-        '!demo-42/admin'
+        'demo-42/*'
+        // '!demo-42/admin',
     ],
 
     // Require some config (repos without any config will be skipped after onboarding PR)
@@ -19,6 +19,7 @@ module.exports = {
         'github-actions',
         // 'docker',
         'npm',
+        "pre-commit",
         'regex'
     ],
 
@@ -149,6 +150,16 @@ module.exports = {
             description: "Update docusaurus and its dependencies",
             groupName: "docusaurus monorepo",
             matchUpdateTypes: [ "minor", "major" ],
+            // Adding automerge
+            automerge: true,
+            automergeType: "pr",
+            platformAutomerge: true,
+            minimumReleaseAge: "3 days"  // Wait for stability
+        },
+        // pre-commit hooks updates
+        {
+            matchManagers: ["pre-commit"],
+            groupName: "Update pre-commit hooks",
             // Adding automerge
             automerge: true,
             automergeType: "pr",
