@@ -2,6 +2,8 @@ name: Renovate
 
 on:
   push:
+  pull_request:
+    types: [opened, synchronize, reopened]  
   workflow_call:
   workflow_dispatch:
   # TODO add schedule and on push of renovate.yml or renovate-config
