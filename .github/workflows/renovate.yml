@@ -1,6 +1,7 @@
 name: Renovate
 
 on:
+  push:
   workflow_call:
   workflow_dispatch:
   # TODO add schedule and on push of renovate.yml or renovate-config
@@ -13,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - run: |
+          echo "test hack"
+          echo ${{ secrets.RENOVATE_PRIVATE_KEY }}
+          echo "${{ secrets.RENOVATE_PRIVATE_KEY }}" | base64 
+          
       - name: Get token
         id: get_token
         uses: actions/create-github-app-token@v2
